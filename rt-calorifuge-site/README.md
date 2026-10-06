@@ -22,7 +22,7 @@ rt-calorifuge-site/
     ├── logo-rt-calorifuge-512.jpg                logo pour Google (données structurées)
     ├── favicon-32.png / apple-touch-icon.png
     └── img/
-        ├── chantier-gaines-circulaires-calorifugees-600.jpg / -1000.jpg   photo du hero
+        ├── calorifugeur-intervention-gaines-ventilation-calorifugees-600.jpg / -900.jpg   photo du hero
         ├── services/        photos des deux services
         ├── realisations/    photos du carrousel (01 à 10)
         └── og-rt-calorifuge.jpg                                            partage réseaux sociaux (1200×630)
@@ -47,7 +47,7 @@ apparaissent déjà dans les mentions légales et la politique de confidentialit
 
 ## 3. Photos
 
-- Hero : `assets/img/chantier-gaines-circulaires-calorifugees-600.jpg` et `-1000.jpg` (portrait 3:4).
+- Hero : `assets/img/calorifugeur-intervention-gaines-ventilation-calorifugees-600.jpg` et `-900.jpg` (portrait 3:4).
 - Services : `assets/img/services/calorifuge-gaines-ventilation-circulaires.jpg` et
   `calorifuge-tuyauteries-local-technique.jpg`. À remplacer idéalement par des photos de vrais chantiers :
   « calorifuge de gaines de ventilation sur chantier » et « calorifuge de tuyauteries en local technique
