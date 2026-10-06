@@ -236,7 +236,7 @@ strong{font-weight:700}
   aspect-ratio:4/5; border-radius:6px; overflow:hidden;
   box-shadow:0 30px 60px -20px rgba(0,0,0,.6);
 }
-.hero__photo--main img{object-position:50% 30%}
+.hero__photo--main img{object-position:50% 70%}
 /* cadre technique décalé */
 .hero__media::before{
   content:""; position:absolute; top:-18px; right:-18px; width:62%; height:58%;
@@ -590,7 +590,7 @@ strong{font-weight:700}
   .hero h1{max-width:20ch}
   .hero__media{max-width:640px; padding:0 0 40px 40px}
   .hero__photo--main{aspect-ratio:4/3}
-  .hero__photo--main img{object-position:50% 12%}
+  .hero__photo--main img{object-position:50% 80%}
   .hero__photo--sub{width:32%}
   .hero__badge{left:calc(32% - 8px)}
   .keyfacts__list{grid-template-columns:1fr 1fr}
