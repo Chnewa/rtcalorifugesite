@@ -5,7 +5,7 @@
    3. Menu mobile
    4. Réalisations (carrousel)
    5. FAQ (un seul volet ouvert)
-   6. Formulaire : champs conditionnels, validation, envoi
+   6. Formulaire : validation et envoi
    ========================================================================= */
 (function () {
   "use strict";
@@ -162,13 +162,6 @@
   var MAX_FILES_BYTES = 10 * 1024 * 1024; // 10 Mo
 
   // Blocs techniques affichés selon le service choisi
-  var TECH_BY_SERVICE = {
-    "Gaines de ventilation": ["gaines"],
-    "Tuyauteries": ["tuyauteries"],
-    "Gaines + tuyauteries": ["gaines", "tuyauteries"],
-    "À définir": []
-  };
-
   function setError(field, message) {
     var wrap = field.closest(".field");
     var slot = wrap && $('[data-err-for="' + field.id + '"]', wrap);
@@ -242,27 +235,12 @@
     var success = $("#form-success");
     var btn     = $("#submit-btn");
     var btnLabel = btn.textContent;
-    var techBlocks = $$("[data-tech]", form);
-    var techHint = $("#tech-hint");
-
-    // --- Champs techniques conditionnels ---
-    function syncTech() {
-      var checked = form.querySelector('[name="service"]:checked');
-      var wanted = checked ? (TECH_BY_SERVICE[checked.value] || []) : [];
-      techBlocks.forEach(function (fs) {
-        var on = wanted.indexOf(fs.getAttribute("data-tech")) !== -1;
-        fs.hidden = !on;
-        fs.disabled = !on;   // un bloc masqué n'est pas envoyé
-      });
-      if (techHint) techHint.hidden = !!checked;
-    }
     $$('[name="service"]', form).forEach(function (r) {
-      r.addEventListener("change", function () { syncTech(); validateGroup(form, "service"); });
+      r.addEventListener("change", function () { validateGroup(form, "service"); });
     });
     $$('[name="type_besoin"]', form).forEach(function (r) {
       r.addEventListener("change", function () { validateGroup(form, "type_besoin"); });
     });
-    syncTech();
 
     // --- Validation au fil de la saisie ---
     var fields = $$("input, select, textarea", form).filter(function (f) {
@@ -351,12 +329,7 @@
       if (CFG.email) {
         var labels = {
           service: "Intervention", type_besoin: "Besoin", entreprise: "Entreprise", nom: "Nom",
-          telephone: "Téléphone", email: "E-mail", ville: "Ville du chantier", description: "Besoin",
-          date_intervention: "Date souhaitée", duree: "Durée estimée", personnes: "Nombre de personnes",
-          type_chantier: "Type de chantier", fonction: "Fonction",
-          type_gaines: "Type de gaines", epaisseur: "Épaisseur", reseau_gaines: "Réseau (gaines)", quantite: "Métrage gaines",
-          reseau_tuyauterie: "Réseau (tuyauterie)", temperature_reseau: "Chaud / froid", metrage_tuyauterie: "Métrage tuyauterie",
-          diametres: "Diamètres", isolant_tuyauterie: "Isolant / épaisseur", finition_tuyauterie: "Finition"
+          telephone: "Téléphone", email: "E-mail", ville: "Ville du chantier", description: "Besoin"
         };
         var lines = [];
         Object.keys(labels).forEach(function (k) {
